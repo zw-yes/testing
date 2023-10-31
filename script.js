@@ -13,7 +13,7 @@ const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 //cool gain money function
 async function update_money(amt) {
   money += amt
-  money_label.textContent = "Money -> " + toString(money)
+  money_label.textContent = "Money > " + money
 }
 
 
@@ -22,7 +22,7 @@ async function buy_chicken() {
   if (money >= chicken_cost) {
     chicken += 1
     money -= chicken_cost
-    chicken_label.textContent = "Chickens: " + toString(chicken)
+    chicken_label.textContent = "Chickens: " + chicken
     chicken_cost += Math.round(Math.sqrt(chicken_cost/1.5))
     //scaling cost idk
   }
