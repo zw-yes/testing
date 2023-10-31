@@ -22,6 +22,7 @@ async function buy_chicken() {
   if (money >= chicken_cost) {
     chicken += 1
     money -= chicken_cost
+    chicken_label.textContent = "Chickens: " + toString(chicken)
     chicken_cost += Math.round(Math.sqrt(chicken_cost/1.5))
     //scaling cost idk
   }
