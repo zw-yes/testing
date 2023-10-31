@@ -22,6 +22,7 @@ async function buy_chicken() {
   if (money >= chicken_cost) {
     chicken += 1
     money -= chicken_cost
+    money_label.textContent = "Money > " + money
     chicken_label.textContent = "Chickens: " + chicken
     chicken_cost += Math.round(Math.sqrt(chicken_cost/1.5))
     chicken_button.textContent = "buy chicken($" + chicken_cost + ")"
