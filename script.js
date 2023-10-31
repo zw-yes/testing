@@ -24,6 +24,7 @@ async function buy_chicken() {
     money -= chicken_cost
     chicken_label.textContent = "Chickens: " + chicken
     chicken_cost += Math.round(Math.sqrt(chicken_cost/1.5))
+    chicken_button.textContent = "buy chicken($" + chicken_cost + ")"
     //scaling cost idk
   }
 }
@@ -33,8 +34,11 @@ async function buy_chicken() {
 //update money per second
 setInterval(function(){
   money_per_second = (chicken*2)
-  money_per_second_label.textContent = "Money/s > " + toString(money_per_second)
+  money_per_second_label.textContent = "Money/s > " + money_per_second
 }, 100)
+
+//chicken button thingie
+chicken_button.addEventListener("click", buy_chicken)
 
 //update money
 setInterval(function(){
