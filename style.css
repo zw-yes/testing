@@ -1,19 +1,15 @@
 /* a */
-tml {
+html {
   height: 100%;
   width: 100%;
 }
 
 p {
-  color: #3c071b;
-}
-
-a {
-  color: #00a1d8;
+  text-size: 30px;
 }
 
 body {
-  background-color: #4f5504;
+  background-color: #2c301d;
 }
 
 button {
