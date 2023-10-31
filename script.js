@@ -42,5 +42,5 @@ chicken_button.addEventListener("click", buy_chicken)
 
 //update money
 setInterval(function(){
-  update_money(money_per_second/10)
-}, 100)
+  update_money(Math.round(money_per_second))
+}, 1000)
