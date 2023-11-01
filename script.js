@@ -47,7 +47,7 @@ async function buy_duck() {
     money_label.textContent = "Money > " + money
     duck_label.textContent = "Ducks: " + duck
     duck_cost += Math.round(Math.sqrt(duck_cost/1.5))
-    duck_button.textContent = "buy chicken($" + duck_cost + ")"
+    duck_button.textContent = "buy duck($" + duck_cost + ")"
     //scaling cost idk
   }
 }
