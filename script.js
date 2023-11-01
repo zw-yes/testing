@@ -16,6 +16,12 @@ const upgrade_button = document.getElementById("upgrade")
 var version = 2.1
 version_label.textContent = "v" + version
 
+//debug function
+function debug(thing){
+    version_label.textContent = thing
+}
+
+
 //variables
 
 //sword stuff
@@ -40,13 +46,13 @@ var money_per_second = 0 //will update itself, check function to update at end
 
 //cool sleep function
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
-
+debug("before swords are defined")
 //cool dictionary function for swords or whatever
 var swords = {};
 var addValue = function (myKey, myValue) {
     swords[myKey] = myValue;
 };
-//setting up sword possibilities
+//setting up sword possibilities 
 addValue("common t1", 100)
 addValue("common t2", 30)
 addValue("common t3", 5)
@@ -64,7 +70,7 @@ addValue("mythic t2", 0.0000005)
 addValue("mythic t3", 0.00000001)
 addValue("god slayer", 0.000000001) //10x rarer than mythic3
 //lmao, this is in % btw
-
+debug("swords done")
 
 var getValue = function (myKey) {
     return swords[myKey];
@@ -120,7 +126,7 @@ async function buy_cow() {
 function randint(min, max) {
     return Math.random() * (max - min) + min;
 }
-
+debug("before reroll sword function is defined")
 //reroll sword
 async function reroll_sword() {
   if (money >= reroll_cost) {
@@ -144,6 +150,7 @@ async function reroll_sword() {
     }}
   }
 }
+debug("done, now defining upgrade_luck")
 async function upgrade_luck() {
   if (money >= upgrade_cost) {
     update_money(0-(upgrade_cost))
@@ -156,7 +163,7 @@ async function upgrade_luck() {
     
   }
 }
-
+debug("upgrade luck defined")
 //update money per second
 setInterval(function(){
   money_per_second = (chicken*1) + (duck*10) + (cow*50)
