@@ -13,7 +13,7 @@ const luck_label = document.getElementById("luck")
 const reroll_button = document.getElementById("reroll")
 const upgrade_button = document.getElementById("upgrade")
 //version here
-var version = 1.5
+var version = 2.1
 version_label.textContent = "v" + version
 
 //variables
@@ -43,7 +43,9 @@ const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 
 //cool dictionary function for swords or whatever
 var swords = {};
-var addValue = function (myKey, myValue) {swords[myKey] = myValue;};
+var addValue = function (myKey, myValue) {
+    swords[myKey] = myValue;
+};
 //setting up sword possibilities
 addValue("common t1", 100)
 addValue("common t2", 30)
@@ -127,7 +129,7 @@ async function reroll_sword() {
     
     //roll logic
     
-    for (const [key, value] of Object.entries(object)) {
+    for (const [key, value] of Object.entries(swords)) {
     
     if ((value * luck) >= 100) {
       //guaranteed swordo
