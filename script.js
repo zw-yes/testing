@@ -6,6 +6,13 @@ const cow_label = document.getElementById("cow")
 const cow_button = document.getElementById("buy_cow")
 const money_label = document.getElementById("money")
 const money_per_second_label = document.getElementById("money_per_second")
+const version_label = document.getElementById("version")
+
+//version amt here
+var version = 1.4
+
+version_label.textContent = "v" + version
+
 var money = 0
 var chicken_cost = 10
 var chicken = 1
