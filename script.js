@@ -7,12 +7,27 @@ const cow_button = document.getElementById("buy_cow")
 const money_label = document.getElementById("money")
 const money_per_second_label = document.getElementById("money_per_second")
 const version_label = document.getElementById("version")
-
+const sword_label = document.getElementById("sword")
+const gem_label = document.getElementById("gems")
+const luck_label = document.getElementById("luck")
+const reroll_button = document.getElementById("reroll")
+const upgrade_button = document.getElementById("upgrade")
 //version here
 var version = 1.5
 version_label.textContent = "v" + version
 
 //variables
+
+//sword stuff
+var gems = 0
+var sword = "None"
+var luck = 1
+var reroll_cost = 10
+var upgrade_cost = 10
+
+
+
+//farm stuff
 var money = 0
 var chicken_cost = 10
 var chicken = 1
@@ -25,6 +40,33 @@ var money_per_second = 0 //will update itself, check function to update at end
 
 //cool sleep function
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
+
+//cool dictionary function for swords or whatever
+var swords = {};
+var addValue = function (myKey, myValue) {swords[myKey] = myValue;};
+//setting up sword possibilities
+addValue("common t1", 100)
+addValue("common t2", 30)
+addValue("common t3", 5)
+addValue("rare t1", 1)
+addValue("rare t2", 0.3)
+addValue("rare t3", 0.05)
+addValue("epic t1", 0.01)
+addValue("epic t2", 0.005)
+addValue("epic t3", 0.001)
+addValue("legend t1", 0.0005)
+addValue("legend t2", 0.0001)
+addValue("legend t3", 0.00005)
+addValue("mythic t1", 0.000001)
+addValue("mythic t2", 0.0000005)
+addValue("mythic t3", 0.00000001)
+addValue("god slayer", 0.000000001) //10x rarer than mythic3
+//lmao, this is in % btw
+
+
+var getValue = function (myKey) {
+    return swords[myKey];
+};
 
 //cool gain money function
 async function update_money(amt) {
@@ -72,6 +114,47 @@ async function buy_cow() {
   }
 }
 
+//cool randint function
+function randint(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+//reroll sword
+async function reroll_sword() {
+  if (money >= reroll_cost) {
+    update_money(0-(reroll_cost))
+    
+    
+    //roll logic
+    
+    for (const [key, value] of Object.entries(object)) {
+    
+    if ((value * luck) >= 100) {
+      //guaranteed swordo
+      sword = key + "("+ value + "%)"
+      sword_label.textContent = "Sword > " + sword
+    } else {
+      if (Math.random()*100) <= value) {
+        //chance hit i think
+        sword = key + "("+ value + "%)"
+        sword_label.textContent = "Sword > " + sword
+      }
+    }}
+  }
+}
+async function upgrade_luck() {
+  if (money >= upgrade_cost) {
+    update_money(0-(upgrade_cost))
+    luck += luck/3
+    luck_label.textContent = "Luck > " + luck + "x"
+    upgrade_cost += Math.round(upgrade_cost/1.2)
+    reroll_cost = upgrade_cost/2
+    reroll_button.textContent = "Reroll(" + reroll_cost + "$)"
+    upgrade_button.textContent = "Upgrade(" + upgrade_cost + "$)"
+    
+  }
+}
+
 //update money per second
 setInterval(function(){
   money_per_second = (chicken*1) + (duck*10) + (cow*50)
@@ -82,6 +165,11 @@ setInterval(function(){
 chicken_button.addEventListener("click", buy_chicken)
 duck_button.addEventListener("click", buy_duck)
 cow_button.addEventListener("click", buy_cow)
+
+//sword related buttons
+reroll_button.addEventListener("click", reroll_sword)
+upgrade_button.addEventListener("click", upgrade_luck)
+
 
 //update money
 setInterval(function(){
