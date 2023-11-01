@@ -128,7 +128,7 @@ function randint(min, max) {
 }
 debug("before reroll sword function is defined")
 //reroll sword
-async function reroll_sword() {
+var reroll_sword = function() {
   if (money >= reroll_cost) {
     update_money(0-(reroll_cost))
     
@@ -151,7 +151,7 @@ async function reroll_sword() {
   }
 }
 debug("done, now defining upgrade_luck")
-async function upgrade_luck() {
+var upgrade_luck = function() {
   if (money >= upgrade_cost) {
     update_money(0-(upgrade_cost))
     luck += luck/3
