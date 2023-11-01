@@ -12,7 +12,7 @@ const version_label = document.getElementById("version")
 var version = 1.5
 version_label.textContent = "v" + version
 
-//stuff
+//variables
 var money = 0
 var chicken_cost = 10
 var chicken = 1
