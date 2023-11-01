@@ -135,8 +135,8 @@ var reroll_sword = function() {
     
     //roll logic
     
-    for (const [key, value] of Object.entries(swords)) {
-    
+    for (key in swords) {
+    value = swords[key]
     if ((value * luck) >= 100) {
       //guaranteed swordo
       sword = key + "("+ value + "%)"
