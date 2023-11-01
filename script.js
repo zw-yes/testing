@@ -8,11 +8,11 @@ const money_label = document.getElementById("money")
 const money_per_second_label = document.getElementById("money_per_second")
 const version_label = document.getElementById("version")
 
-//version amt here
-var version = 1.4
-
+//version here
+var version = 1.5
 version_label.textContent = "v" + version
 
+//stuff
 var money = 0
 var chicken_cost = 10
 var chicken = 1
@@ -21,7 +21,7 @@ var duck = 0
 var cow_cost = 1500
 var cow = 0
 
-var money_per_second = 2
+var money_per_second = 0 //will update itself, check function to update at end
 
 //cool sleep function
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
@@ -41,7 +41,7 @@ async function buy_chicken() {
     money_label.textContent = "Money > " + money
     chicken_label.textContent = "Chickens: " + chicken
     chicken_cost += Math.round(Math.round(Math.sqrt(chicken_cost/1.25)) + Math.round(chicken_cost/10))
-    chicken_button.textContent = "buy chicken($" + chicken_cost + ")"
+    chicken_button.textContent = "chicken($" + chicken_cost + ")"
     //scaling cost idk
   }
 }
@@ -54,7 +54,7 @@ async function buy_duck() {
     money_label.textContent = "Money > " + money
     duck_label.textContent = "Ducks: " + duck
     duck_cost += Math.round(Math.round(Math.sqrt(duck_cost/1.15)) + Math.round(duck_cost/10))
-    duck_button.textContent = "buy duck($" + duck_cost + ")"
+    duck_button.textContent = "duck($" + duck_cost + ")"
     //scaling cost idk
   }
 }
@@ -67,7 +67,7 @@ async function buy_cow() {
     money_label.textContent = "Money > " + money
     cow_label.textContent = "cow: " + cow
     cow_cost += Math.round(Math.round(Math.sqrt(cow_cost/1.05)) + Math.round(cow_cost/10))
-    cow_button.textContent = "buy cow($" + cow_cost + ")"
+    cow_button.textContent = "cow($" + cow_cost + ")"
     //scaling cost idk
   }
 }
