@@ -163,7 +163,7 @@ var upgrade_luck = function() {
     
   }
 }
-debug("upgrade luck defined")
+debug("upgrade luck defined successfully")
 //update money per second
 setInterval(function(){
   money_per_second = (chicken*1) + (duck*10) + (cow*50)
