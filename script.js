@@ -33,7 +33,7 @@ async function buy_chicken() {
     money -= chicken_cost
     money_label.textContent = "Money > " + money
     chicken_label.textContent = "Chickens: " + chicken
-    chicken_cost += Math.round(Math.sqrt(chicken_cost/1.5))
+    chicken_cost += Math.round(Math.sqrt(chicken_cost/1.25))
     chicken_button.textContent = "buy chicken($" + chicken_cost + ")"
     //scaling cost idk
   }
@@ -46,7 +46,7 @@ async function buy_duck() {
     money -= duck_cost
     money_label.textContent = "Money > " + money
     duck_label.textContent = "Ducks: " + duck
-    duck_cost += Math.round(Math.sqrt(duck_cost/1.5))
+    duck_cost += Math.round(Math.sqrt(duck_cost/1.15))
     duck_button.textContent = "buy duck($" + duck_cost + ")"
     //scaling cost idk
   }
@@ -59,7 +59,7 @@ async function buy_cow() {
     money -= cow_cost
     money_label.textContent = "Money > " + money
     cow_label.textContent = "cow: " + cow
-    cow_cost += Math.round(Math.sqrt(cow_cost/1.5))
+    cow_cost += Math.round(Math.sqrt(cow_cost/1.05))
     cow_button.textContent = "buy cow($" + cow_cost + ")"
     //scaling cost idk
   }
